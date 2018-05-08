@@ -1,3 +1,3 @@
-# Earthquake
+# Meridian
 
-Displays latest information about any earthquake occurred globally. 
+Android App for Meridian. 
