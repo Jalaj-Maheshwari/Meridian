@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/meridian_pwa"
+        style="@android:style/Widget.Button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorButtonText"
+        android:text="@string/meridian_pwa"
+        android:visibility="visible">
+    </Button>
+
+    <Button
+        android:id="@+id/natural_calamity"
+        style="@android:style/Widget.Button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@id/meridian_pwa"
+        android:background="@color/colorPrimary"
+        android:text="@string/earthquake"
+        android:textColor="@color/colorButtonText"
+        android:visibility="visible">
+
+    </Button>
+
+
+    <Button
+        android:id="@+id/elevation"
+        style="@android:style/Widget.Button"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@id/natural_calamity"
+        android:background="@color/colorPrimary"
+        android:text="@string/elevation"
+        android:textColor="@color/colorButtonText"
+        android:visibility="visible"
+        android:layout_width="150dp">
+
+    </Button>
+
+</RelativeLayout>

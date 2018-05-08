@@ -4,6 +4,12 @@
     <!-- Title for the application. [CHAR LIMIT=12] -->
     <string name="app_name">Meridian</string>
 
+    <string name="meridian_pwa">Weather &amp; Air Quality</string>
+
+    <string name="earthquake">Natural Calamity</string>
+
+    <string name="elevation">Elevation</string>
+
     <!-- Default text to show with the earthquake location ("Near the Pacific-Antarctic Ridge")
          if no specific kilometer distance from the primary location is given [CHAR LIMIT=30] -->
     <string name="near_the">Near the</string>
