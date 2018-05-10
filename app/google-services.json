@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "321104447419",
+    "firebase_url": "https://meridianchat-f41f7.firebaseio.com",
+    "project_id": "meridianchat-f41f7",
+    "storage_bucket": "meridianchat-f41f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321104447419:android:49e7de48d23737bb",
+        "android_client_info": {
+          "package_name": "com.example.android.meridian"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321104447419-3s2mlss8ph6gdg4ndvplh8bqqmplcca2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.meridian",
+            "certificate_hash": "95789209082a510f68f0a813932267a7ba6179f7"
+          }
+        },
+        {
+          "client_id": "321104447419-7l3ehsj4da7rc3vo9m3utue7h3rl2u48.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhv3sFbO1Ty2k2-bq9wxiNDkyR2v9Zjgg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321104447419-7l3ehsj4da7rc3vo9m3utue7h3rl2u48.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

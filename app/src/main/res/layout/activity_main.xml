@@ -8,46 +8,51 @@
 
     <Button
         android:id="@+id/meridian_pwa"
-        style="@android:style/Widget.Button"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="40dp"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/colorButtonText"
-        android:text="@string/meridian_pwa"
-        android:visibility="visible">
-    </Button>
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/weather"
+        android:textColor="#e8e9e9" />
+
 
     <Button
         android:id="@+id/natural_calamity"
-        style="@android:style/Widget.Button"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_below="@id/meridian_pwa"
-        android:background="@color/colorPrimary"
-        android:text="@string/earthquake"
-        android:textColor="@color/colorButtonText"
-        android:visibility="visible">
-
-    </Button>
+        android:layout_width="140dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="66dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:background="@drawable/calamity"
+        android:textColor="#e8e9e9" />
 
 
     <Button
         android:id="@+id/elevation"
-        style="@android:style/Widget.Button"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_below="@id/natural_calamity"
-        android:background="@color/colorPrimary"
-        android:text="@string/elevation"
-        android:textColor="@color/colorButtonText"
-        android:visibility="visible"
-        android:layout_width="150dp">
+        android:layout_width="140dp"
+        android:layout_height="150dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/natural_calamity"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="66dp"
+        android:layout_marginRight="38dp"
+        android:background="@drawable/elevation"
+        android:textColor="#e8e9e9" />
 
-    </Button>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/colorPrimary"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 
 </RelativeLayout>

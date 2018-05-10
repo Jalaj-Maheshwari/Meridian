@@ -10,6 +10,8 @@
     <!-- Accent color of the app -->
     <color name="colorAccent">#10CAC9</color>
 
+    <color name="colorTitle">#ffffff</color>
+
     <!-- Text color for the Main Activity Buttons -->
     <color name="colorButtonText">#FFFFFF</color>
 

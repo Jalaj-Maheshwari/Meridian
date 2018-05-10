@@ -1,0 +1,129 @@
+package com.example.android.meridian.elevation;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.location.Location;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.example.android.meridian.R;
+
+import java.util.Locale;
+
+//import android.support.v7.app.ActionBarActivity;
+
+public class ElevationActivity extends AppCompatActivity implements LocationCallback {
+    private LocationModel locationModel;
+    private String units = "meters";
+    private double unitMultiplier = 1.0;
+
+    private double computeUnitMultiplier(String units) {
+        if ("feet".equals(units)) {
+            return 3.28084;
+        }
+        else {
+            return 1.0;
+        }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+        setContentView(R.layout.elevation_activity);
+        updateUnits();
+        this.locationModel = new LocationModel(ElevationActivity.this, this);
+        updateToLastElevation();
+        Button button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateElevation();
+            }
+        });
+
+    }
+
+    private void updateElevation() {
+        locationModel.updateLocation(ElevationActivity.this);
+    }
+
+    private void updateToLastElevation() {
+        Location lastLocation = locationModel.getLastLocation(ElevationActivity.this);
+        if (lastLocation != null) {
+            locationUpdated(lastLocation);
+        }
+    }
+
+    private void updateUnits() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        this.units = sharedPreferences.getString("pref_units", "meters");
+        this.unitMultiplier = computeUnitMultiplier(this.units);
+    }
+
+    public void locationUpdated(Location location) {
+
+        double elevationInUnits = location.getAltitude() * this.unitMultiplier;
+        double accuracyInUnits = location.getAccuracy() * this.unitMultiplier;
+        TextView elevationDisplay = (TextView) findViewById(R.id.elevationDisplay);
+        elevationDisplay.setText(String.format(Locale.US, "%.1f", elevationInUnits));
+
+        TextView latitudeDisplay = (TextView) findViewById(R.id.latitudeDisplay);
+        latitudeDisplay.setText(FormatUtils.formatLatitude(location.getLatitude()));
+
+        TextView longitudeDisplay = (TextView) findViewById(R.id.longitudeDisplay);
+        longitudeDisplay.setText(FormatUtils.formatLongitude(location.getLongitude()));
+
+        TextView accuracyDisplay = (TextView) findViewById(R.id.accuracyDisplay);
+        accuracyDisplay.setText(String.format(Locale.US, "%.1f", accuracyInUnits));
+
+        TextView elevationUnits = (TextView) findViewById(R.id.elevationUnitsDisplay);
+        elevationUnits.setText(this.units);
+
+        TextView accuracyUnits = (TextView) findViewById(R.id.accuracyUnitsDisplay);
+        accuracyUnits.setText(this.units);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.elevation_settings, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        if (id == R.id.elevation_action_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateUnits();
+        updateToLastElevation();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+}
+

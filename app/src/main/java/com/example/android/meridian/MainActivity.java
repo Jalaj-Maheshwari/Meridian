@@ -4,11 +4,15 @@ package com.example.android.meridian;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.android.meridian.chat.ChatActivity;
+import com.example.android.meridian.elevation.ElevationActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 // Create a new intent to open the {@link NumbersActivity}
-                Intent earthquakeIntent = new Intent(MainActivity.this, EarthquakeActivity.class);
+                Intent earthquakeIntent = new Intent(MainActivity.this, com.example.android.meridian.calamity.EarthquakeActivity.class);
 
                 // Start the new activity
                 startActivity(earthquakeIntent);
@@ -48,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button elevation = (Button) findViewById(R.id.elevation);
-/*        elevation.setOnClickListener(new View.OnClickListener() {
+        elevation.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers category is clicked on.
             @Override
             public void onClick(View view) {
@@ -60,12 +64,26 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(elevationIntent);
             }
         });
-*/
+
+        FloatingActionButton chat = (FloatingActionButton) findViewById(R.id.fab_chat);
+        chat.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the numbers category is clicked on.
+            @Override
+            public void onClick(View view) {
+
+                // Create a new intent to open the {@link NumbersActivity}
+                Intent chatIntent = new Intent(MainActivity.this, ChatActivity.class);
+
+                // Start the new activity
+                startActivity(chatIntent);
+            }
+        });
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.sos, menu);
+        getMenuInflater().inflate(R.menu.sos_main, menu);
         return true;
     }
 
@@ -73,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.sos_button) {
-            Intent sosIntent = new Intent(this, SOSActivity.class);
+            Intent sosIntent = new Intent(this, com.example.android.meridian.sos.SOSActivity.class);
             startActivity(sosIntent);
             return true;
         }
